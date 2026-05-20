@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Kaer Sellier — Restauration de selles, maroquinerie d'écurie et accessoires en cuir. Représentant Stübben pour la Bretagne. Savoir-faire artisanal français.">
+  <meta name="description" content="Kaer Sellier — Saddle Fitter & Sellier en Bretagne. Saddle Fitting, Bit Fitting, accessoires équestres. Représentant Stübben pour la Bretagne, la Normandie et la Loire-Atlantique.">
   <meta name="theme-color" content="#164415">
 
-  <title>Kaer Sellier — Sellier-bourrelier en Bretagne</title>
+  <title>Kaer Sellier — Saddle Fitter & Sellier en Bretagne</title>
 
   <link rel="icon" type="image/png" href="assets/logos/kr-vert.png">
   <link rel="apple-touch-icon" href="assets/logos/kr-vert.png">
@@ -19,8 +19,8 @@
   <link rel="stylesheet" href="css/style.css">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Kaer Sellier — Sellier-bourrelier en Bretagne">
-  <meta property="og:description" content="Restauration de selles, maroquinerie d'écurie. Représentant Stübben Bretagne.">
+  <meta property="og:title" content="Kaer Sellier — Saddle Fitter & Sellier en Bretagne">
+  <meta property="og:description" content="De belles selles pour de belles aventures. Saddle Fitting, Bit Fitting, accessoires. Représentant Stübben Bretagne, Normandie & Loire-Atlantique.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/images/hero/stubben-kr.jpg">
 </head>
@@ -50,15 +50,50 @@
     </div>
   </header>
 
-  <nav class="nav" id="navigation" aria-hidden="true">
+  <!-- Overlay sombre derrière le drawer -->
+  <div class="nav-overlay" aria-hidden="true"></div>
+
+  <nav class="nav" id="navigation" aria-hidden="true" aria-label="Navigation principale">
+    <div class="nav__header">
+      <span class="nav__eyebrow">Kaer Sellier</span>
+      <button class="nav__close" aria-label="Fermer le menu" type="button">
+        <span class="nav__close-bar"></span>
+        <span class="nav__close-bar"></span>
+      </button>
+    </div>
+    <hr class="nav__filet">
+
     <ul class="nav__list">
-      <li class="nav__item"><a href="#" class="nav__link">Accueil</a></li>
-      <li class="nav__item"><a href="savoir-faire.html" class="nav__link">Savoir-faire</a></li>
-      <li class="nav__item"><a href="selles.html" class="nav__link">Selles</a></li>
-      <li class="nav__item"><a href="maroquinerie.html" class="nav__link">Maroquinerie</a></li>
-      <li class="nav__item"><a href="stubben-bretagne.html" class="nav__link">Stübben Bretagne</a></li>
-      <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+      <li class="nav__item">
+        <a href="index.html" class="nav__link">
+          <span class="nav__link-numero">I</span> Accueil
+        </a>
+      </li>
+      <li class="nav__item">
+        <a href="saddle-fitting.html" class="nav__link">
+          <span class="nav__link-numero">II</span> Saddle Fitting
+        </a>
+      </li>
+      <li class="nav__item">
+        <a href="bit-fitting.html" class="nav__link">
+          <span class="nav__link-numero">III</span> Bit Fitting
+        </a>
+      </li>
+      <li class="nav__item">
+        <a href="accessoires.html" class="nav__link">
+          <span class="nav__link-numero">IV</span> Accessoires
+        </a>
+      </li>
+      <li class="nav__item">
+        <a href="contact.html" class="nav__link">
+          <span class="nav__link-numero">V</span> Contact
+        </a>
+      </li>
     </ul>
+
+    <div class="nav__footer">
+      <p class="nav__devise">« De belles selles<br>pour de belles aventures. »</p>
+    </div>
   </nav>
 
   <main>
@@ -72,11 +107,11 @@
       </div>
 
       <div class="hero__content">
-        <p class="hero__eyebrow">Sellier-Bourrelier · Bretagne</p>
-        <h1 class="hero__title">L'art de la selle,<br>restauré à la main.</h1>
+        <p class="hero__eyebrow">Saddle Fitter · Sellier · Bretagne</p>
+        <h1 class="hero__title">De belles selles<br>pour de belles aventures.</h1>
         <p class="hero__subtitle">
-          Restauration de selles, maroquinerie d'écurie et accessoires en cuir.
-          Représentant officiel Stübben pour la Bretagne.
+          Saddle Fitting, Bit Fitting et accessoires équestres.
+          Représentant Stübben Bretagne · Normandie · Loire-Atlantique.
         </p>
       </div>
 
@@ -89,8 +124,8 @@
     <section class="manifeste reveal">
       <div class="container">
         <p class="manifeste__text">
-          « Chaque selle a une histoire.<br>
-          Notre métier consiste à lui en offrir une seconde. »
+          « Une selle bien ajustée, c'est<br>
+          le confort du cheval, la justesse du cavalier. »
         </p>
         <hr class="filet filet--center">
         <p class="manifeste__signature">Kaer Sellier — Atelier de Bretagne</p>
@@ -110,33 +145,34 @@
 
         <article class="metier-card reveal">
           <div class="metier-card__image">
-            <div class="metier-card__placeholder">[ Selle restaurée ]</div>
+            <div class="metier-card__placeholder">[ Saddle Fitting ]</div>
           </div>
           <div class="metier-card__body">
             <span class="metier-card__numero">I</span>
-            <h3 class="metier-card__title">Selles restaurées</h3>
+            <h3 class="metier-card__title">Saddle Fitting</h3>
             <p class="metier-card__text">
-              Restauration complète de selles d'occasion : reconditionnement du
-              cuir, remplacement des matelassures, contrôle de l'arçon. Une
-              seconde vie, sans compromis sur le confort du cheval.
+              Bilan complet du couple cheval-cavalier : prise de gabarit du dos,
+              analyse de la statique et de la dynamique, choix et ajustement de
+              l'arçon, des matelassures et des panneaux. Suivi post-livraison
+              et réajustements saisonniers.
             </p>
-            <a href="selles.html" class="metier-card__link">En savoir plus</a>
+            <a href="saddle-fitting.html" class="metier-card__link">En savoir plus</a>
           </div>
         </article>
 
         <article class="metier-card reveal">
           <div class="metier-card__image">
-            <div class="metier-card__placeholder">[ Maroquinerie ]</div>
+            <div class="metier-card__placeholder">[ Bit Fitting ]</div>
           </div>
           <div class="metier-card__body">
             <span class="metier-card__numero">II</span>
-            <h3 class="metier-card__title">Maroquinerie</h3>
+            <h3 class="metier-card__title">Bit Fitting</h3>
             <p class="metier-card__text">
-              Pièces de maroquinerie d'écurie en cuir à tannage végétal,
-              cousues main. Étuis, ceintures, sacs de pansage, accessoires
-              personnalisables aux couleurs de votre écurie.
+              Étude morphologique de la bouche : conformation du palais, espace
+              lingual, sensibilité des barres. Recommandation du mors le plus
+              adapté à l'anatomie du cheval et à la discipline pratiquée.
             </p>
-            <a href="maroquinerie.html" class="metier-card__link">En savoir plus</a>
+            <a href="bit-fitting.html" class="metier-card__link">En savoir plus</a>
           </div>
         </article>
 
@@ -148,10 +184,11 @@
             <span class="metier-card__numero">III</span>
             <h3 class="metier-card__title">Accessoires</h3>
             <p class="metier-card__text">
-              Casquettes, patchs cuir, petits objets du quotidien. Le savoir-faire
-              de la sellerie appliqué à des pièces accessibles, fabriquées en France.
+              Sélection d'accessoires équestres choisis avec exigence : sangles,
+              étrivières, étriers, tapis, ainsi qu'une petite ligne d'objets
+              signés Kaer Sellier, fabriqués en France.
             </p>
-            <a href="maroquinerie.html#accessoires" class="metier-card__link">Découvrir</a>
+            <a href="accessoires.html" class="metier-card__link">Découvrir</a>
           </div>
         </article>
 
@@ -159,7 +196,7 @@
     </section>
 
     <!-- ============================================
-         PARTENARIAT STÜBBEN BRETAGNE
+         PARTENARIAT STÜBBEN
          ============================================ -->
     <section class="partenariat reveal">
       <div class="partenariat__inner">
@@ -167,10 +204,11 @@
         <h2 class="partenariat__title">Stübben × Kaer Sellier</h2>
         <p class="partenariat__text">
           Kaer Sellier est le représentant officiel de la maison Stübben pour
-          le secteur Bretagne. Une collaboration fondée sur la même exigence :
-          le confort du cheval, la précision du geste, la durabilité du cuir.
+          la Bretagne, la Normandie et la Loire-Atlantique. Une collaboration
+          fondée sur la même exigence : le confort du cheval, la précision
+          du geste, la durabilité du cuir.
         </p>
-        <a href="stubben-bretagne.html" class="partenariat__cta">Découvrir le partenariat</a>
+        <a href="contact.html" class="partenariat__cta">Réserver votre essai</a>
       </div>
     </section>
 
@@ -180,29 +218,29 @@
     <section class="savoir-faire">
       <div class="savoir-faire__grid">
         <div class="savoir-faire__intro reveal">
-          <span class="eyebrow">L'atelier</span>
-          <h2>Un métier de patience.</h2>
+          <span class="eyebrow">L'approche</span>
+          <h2>Une expertise du couple<br>cheval-cavalier.</h2>
         </div>
 
         <div class="savoir-faire__galerie reveal">
           <div class="savoir-faire__img savoir-faire__img--large">
-            <div class="savoir-faire__img-placeholder">[ Photo atelier ]</div>
+            <div class="savoir-faire__img-placeholder">[ Saddle fitter au travail ]</div>
+          </div>
+          <div class="savoir-faire__img">
+            <div class="savoir-faire__img-placeholder">[ Prise de gabarit ]</div>
           </div>
           <div class="savoir-faire__img">
             <div class="savoir-faire__img-placeholder">[ Détail cuir ]</div>
-          </div>
-          <div class="savoir-faire__img">
-            <div class="savoir-faire__img-placeholder">[ Couture main ]</div>
           </div>
         </div>
 
         <div class="savoir-faire__text reveal">
           <p>
-            Chaque pièce qui sort de l'atelier passe entre les mains d'un seul
-            artisan, du diagnostic au polissage final. Coutures sellier
-            traditionnelles, cuirs sélectionnés en tannerie française, finitions
-            à la cire d'abeille — un travail lent, à rebours des cadences
-            industrielles.
+            Chaque intervention commence par l'observation. Comprendre la
+            morphologie du cheval, son histoire, sa discipline. Évaluer
+            l'assiette du cavalier, ses sensations, ses attentes. Du diagnostic
+            initial au suivi dans le temps, l'objectif reste le même :
+            l'harmonie d'un couple, sans compromis sur le bien-être animal.
           </p>
         </div>
       </div>
@@ -214,11 +252,11 @@
     <section class="contact reveal">
       <h2 class="contact__title">Un projet, une question ?</h2>
       <p class="contact__text">
-        L'atelier vous accueille sur rendez-vous. Que vous souhaitiez restaurer
-        une selle, commander une pièce sur mesure, ou en savoir plus sur le
-        partenariat Stübben — nous serons heureux d'échanger.
+        Pour un bilan saddle fitting, un essai Stübben, ou simplement échanger
+        sur votre couple cheval-cavalier — Kaer Sellier se déplace en Bretagne,
+        Normandie et Loire-Atlantique.
       </p>
-      <a href="contact.html" class="contact__cta">Nous contacter</a>
+      <a href="contact.html" class="contact__cta">Réserver votre essai</a>
     </section>
 
   </main>
@@ -230,13 +268,12 @@
     <div class="footer__logo">
       <img src="assets/logos/kr-blanc.png" alt="Kaer Sellier France">
     </div>
-    <p class="footer__tagline">Sellier-bourrelier en Bretagne</p>
+    <p class="footer__tagline">« De belles selles pour de belles aventures. »</p>
 
     <ul class="footer__links">
-      <li><a href="savoir-faire.html">Savoir-faire</a></li>
-      <li><a href="selles.html">Selles</a></li>
-      <li><a href="maroquinerie.html">Maroquinerie</a></li>
-      <li><a href="stubben-bretagne.html">Stübben Bretagne</a></li>
+      <li><a href="saddle-fitting.html">Saddle Fitting</a></li>
+      <li><a href="bit-fitting.html">Bit Fitting</a></li>
+      <li><a href="accessoires.html">Accessoires</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="mentions-legales.html">Mentions légales</a></li>
     </ul>

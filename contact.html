@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Contact Kaer Sellier — Réservez votre essai Stübben, un bilan Saddle Fitting ou Bit Fitting. Déplacements en Bretagne, Normandie et Loire-Atlantique.">
+  <meta name="theme-color" content="#164415">
+
+  <title>Contact — Kaer Sellier</title>
+
+  <link rel="icon" type="image/png" href="assets/logos/kr-vert.png">
+  <link rel="apple-touch-icon" href="assets/logos/kr-vert.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/contact.css">
+
+  <meta property="og:title" content="Contact — Kaer Sellier">
+  <meta property="og:description" content="Réservez votre essai Stübben ou un bilan saddle fitting / bit fitting.">
+  <meta property="og:type" content="website">
+</head>
+
+<body class="page-interne">
+
+  <!-- ============================================
+       HEADER + NAVIGATION
+       ============================================ -->
+  <header class="header header--interne" id="header">
+    <div class="container">
+      <div class="header__inner">
+        <a href="index.html" class="header__logo" aria-label="Kaer Sellier — Accueil">
+          <img src="assets/logos/kr-blanc.png" alt="Kaer Sellier" class="logo-blanc">
+          <img src="assets/logos/kr-vert.png" alt="Kaer Sellier" class="logo-vert">
+        </a>
+
+        <button class="menu-toggle"
+                aria-label="Ouvrir le menu"
+                aria-expanded="false"
+                aria-controls="navigation">
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav-overlay" aria-hidden="true"></div>
+
+  <nav class="nav" id="navigation" aria-hidden="true" aria-label="Navigation principale">
+    <div class="nav__header">
+      <span class="nav__eyebrow">Kaer Sellier</span>
+      <button class="nav__close" aria-label="Fermer le menu" type="button">
+        <span class="nav__close-bar"></span>
+        <span class="nav__close-bar"></span>
+      </button>
+    </div>
+    <hr class="nav__filet">
+
+    <ul class="nav__list">
+      <li class="nav__item">
+        <a href="index.html" class="nav__link">
+          <span class="nav__link-numero">I</span> Accueil
+        </a>
+      </li>
+      <li class="nav__item">
+        <a href="saddle-fitting.html" class="nav__link">
+          <span class="nav__link-numero">II</span> Saddle Fitting
+        </a>
+      </li>
+      <li class="nav__item">
+        <a href="bit-fitting.html" class="nav__link">
+          <span class="nav__link-numero">III</span> Bit Fitting
+        </a>
+      </li>
+      <li class="nav__item">
+        <a href="accessoires.html" class="nav__link">
+          <span class="nav__link-numero">IV</span> Accessoires
+        </a>
+      </li>
+      <li class="nav__item">
+        <a href="contact.html" class="nav__link" aria-current="page">
+          <span class="nav__link-numero">V</span> Contact
+        </a>
+      </li>
+    </ul>
+
+    <div class="nav__footer">
+      <p class="nav__devise">« De belles selles<br>pour de belles aventures. »</p>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ============================================
+         HERO COURT
+         ============================================ -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-hero__eyebrow">Prendre rendez-vous</span>
+        <h1 class="page-hero__title">Réservez votre essai.</h1>
+        <p class="page-hero__subtitle">
+          Bilan Saddle Fitting, étude Bit Fitting, essai Stübben — Kaer Sellier
+          se déplace en Bretagne, Normandie et Loire-Atlantique.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         BLOC PRINCIPAL — FORMULAIRE + COORDONNÉES
+         ============================================ -->
+    <section class="contact-main">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Colonne gauche : formulaire -->
+          <div class="contact-form-wrapper reveal">
+            <span class="eyebrow">Formulaire</span>
+            <h2 class="contact-form__title">Votre demande</h2>
+            <p class="contact-form__intro">
+              Quelques informations pour préparer au mieux notre échange.
+              Une réponse vous sera apportée sous 48 à 72 heures.
+            </p>
+
+            <form id="contact-form" class="contact-form" novalidate>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="prenom">Prénom <span class="required" aria-hidden="true">*</span></label>
+                  <input type="text" id="prenom" name="prenom" required autocomplete="given-name">
+                </div>
+                <div class="form-field">
+                  <label for="nom">Nom <span class="required" aria-hidden="true">*</span></label>
+                  <input type="text" id="nom" name="nom" required autocomplete="family-name">
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="email">Email <span class="required" aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" required autocomplete="email" inputmode="email">
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="telephone">Téléphone</label>
+                  <input type="tel" id="telephone" name="telephone" autocomplete="tel" inputmode="tel">
+                </div>
+                <div class="form-field">
+                  <label for="localisation">Département / Ville</label>
+                  <input type="text" id="localisation" name="localisation" placeholder="ex : 56 — Vannes">
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="demande">Nature de la demande <span class="required" aria-hidden="true">*</span></label>
+                <div class="select-wrapper">
+                  <select id="demande" name="demande" required>
+                    <option value="">— Sélectionnez —</option>
+                    <option value="saddle-fitting">Bilan Saddle Fitting</option>
+                    <option value="bit-fitting">Bilan Bit Fitting</option>
+                    <option value="essai-stubben">Essai Stübben</option>
+                    <option value="accessoires">Accessoires</option>
+                    <option value="autre">Autre</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="cheval">Informations sur le cheval <span class="optional">(optionnel)</span></label>
+                <input type="text" id="cheval" name="cheval" placeholder="ex : SF, 8 ans, CSO Amateur 2">
+                <span class="form-help">Race, âge, discipline — utile pour préparer le rendez-vous.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="message">Votre message <span class="required" aria-hidden="true">*</span></label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+
+              <button type="submit" class="form-submit">
+                <span>Envoyer la demande</span>
+                <svg class="form-submit__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+
+              <p class="form-note">
+                <span class="required" aria-hidden="true">*</span> Champs obligatoires.
+                Votre demande ouvrira votre messagerie pour l'envoi.
+              </p>
+
+            </form>
+          </div>
+
+          <!-- Colonne droite : coordonnées + réseaux -->
+          <aside class="contact-info">
+
+            <div class="info-block reveal">
+              <span class="eyebrow">Coordonnées</span>
+              <h2 class="info-block__title">Contact direct</h2>
+
+              <ul class="info-list">
+                <li class="info-item">
+                  <span class="info-item__label">Email</span>
+                  <a href="mailto:contact@kaersellier.fr" class="info-item__value">contact@kaersellier.fr</a>
+                  <span class="info-item__note">À confirmer</span>
+                </li>
+                <li class="info-item">
+                  <span class="info-item__label">Téléphone</span>
+                  <a href="tel:+33000000000" class="info-item__value">+33 0 00 00 00 00</a>
+                  <span class="info-item__note">À confirmer</span>
+                </li>
+                <li class="info-item">
+                  <span class="info-item__label">Disponibilités</span>
+                  <span class="info-item__value">Sur rendez-vous</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="info-block info-block--zone reveal">
+              <span class="eyebrow">Zone d'intervention</span>
+              <h2 class="info-block__title">Trois régions.</h2>
+              <ul class="zone-list">
+                <li>Bretagne</li>
+                <li>Normandie</li>
+                <li>Loire-Atlantique</li>
+              </ul>
+              <p class="info-block__note">
+                Au-delà de ces zones, n'hésitez pas à nous contacter —
+                des déplacements ponctuels peuvent être étudiés.
+              </p>
+            </div>
+
+            <div class="info-block reveal">
+              <span class="eyebrow">Suivez l'atelier</span>
+              <h2 class="info-block__title">Sur les réseaux</h2>
+              <ul class="social-list">
+                <li>
+                  <a href="https://www.instagram.com/kaersellier/" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                      <rect x="3" y="3" width="18" height="18" rx="5"/>
+                      <circle cx="12" cy="12" r="4"/>
+                      <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+                    </svg>
+                    <span>
+                      <span class="social-link__name">Instagram</span>
+                      <span class="social-link__handle">@kaersellier</span>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/kaerstables/?locale=fr_FR" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                    </svg>
+                    <span>
+                      <span class="social-link__name">Facebook</span>
+                      <span class="social-link__handle">Kaer Sellier</span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         MODAL DE CONFIRMATION (après submit)
+         ============================================ -->
+    <div class="modal" id="confirmation-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+      <div class="modal__backdrop"></div>
+      <div class="modal__content">
+        <button class="modal__close" aria-label="Fermer" type="button">
+          <span class="nav__close-bar"></span>
+          <span class="nav__close-bar"></span>
+        </button>
+        <span class="eyebrow">Confirmation</span>
+        <h2 id="modal-title" class="modal__title">Votre messagerie s'est-elle ouverte&nbsp;?</h2>
+        <p class="modal__text">
+          Pour finaliser votre demande, validez l'envoi du mail
+          pré-rempli dans votre application de messagerie. Si rien ne
+          s'est ouvert, vous pouvez nous écrire directement à
+          <a href="mailto:contact@kaersellier.fr" class="modal__mail">contact@kaersellier.fr</a>.
+        </p>
+        <button class="form-submit modal__close-cta" type="button">Compris</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="footer__logo">
+      <img src="assets/logos/kr-blanc.png" alt="Kaer Sellier France">
+    </div>
+    <p class="footer__tagline">« De belles selles pour de belles aventures. »</p>
+
+    <ul class="footer__links">
+      <li><a href="saddle-fitting.html">Saddle Fitting</a></li>
+      <li><a href="bit-fitting.html">Bit Fitting</a></li>
+      <li><a href="accessoires.html">Accessoires</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="mentions-legales.html">Mentions légales</a></li>
+    </ul>
+
+    <p class="footer__copyright">
+      © 2026 Kaer Sellier France · Tous droits réservés
+    </p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
