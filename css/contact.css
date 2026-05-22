@@ -69,12 +69,24 @@
 .contact-main {
   padding: var(--space-xl) 0 var(--space-2xl);
   background-color: var(--creme-clair);
+  /* Empêche tout débordement horizontal au sein de cette section
+     (le carrousel utilise overflow-x: auto qui scrolle à l'intérieur,
+     mais sans pousser la section au-delà du viewport) */
+  overflow-x: clip;
 }
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-2xl);
+}
+
+/* Tous les enfants de la grille forcés à respecter la largeur du parent.
+   Sans ça, un enfant avec du contenu débordant (le carrousel notamment)
+   peut élargir sa colonne au-delà de 100%. */
+.contact-grid > * {
+  min-width: 0;
+  max-width: 100%;
 }
 
 /* ============================================
@@ -84,6 +96,10 @@
   background-color: var(--blanc);
   padding: var(--space-lg) var(--space-md);
   border: 1px solid rgba(22, 68, 21, 0.08);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .contact-form__title {
@@ -151,9 +167,13 @@
   color: var(--anthracite);
   transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   border-radius: 0;
   -webkit-appearance: none;
   appearance: none;
+  /* Empêche iOS de zoomer sur les champs (zoom auto si font-size < 16px) */
+  font-size: max(16px, 1rem);
 }
 
 .form-field input:focus,
@@ -290,45 +310,73 @@
   gap: var(--space-md);
 }
 
-/* Carrousel mobile : scroll horizontal avec snap natif */
+/* Par défaut : empilement vertical classique (pas de carrousel) */
 .contact-info__carousel {
   display: flex;
+  flex-direction: column;
   gap: var(--space-md);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  /* On déborde légèrement du container pour donner un effet "edge-to-edge"
-     et permettre de voir un bout du slide suivant */
-  margin: 0 calc(var(--space-md) * -1);
-  padding: var(--space-xs) var(--space-md) var(--space-sm);
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-}
-
-.contact-info__carousel::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
 }
 
 .contact-info__carousel > .info-block {
-  flex: 0 0 calc(100% - var(--space-lg));
-  scroll-snap-align: center;
-  scroll-snap-stop: always;
-  /* Une hauteur min uniforme pour éviter que le carrousel "saute" entre slides
-     de hauteurs différentes pendant le swipe */
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Points de pagination */
+/* Pagination du carrousel : masquée par défaut */
 .carousel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: var(--space-sm) 0 var(--space-md);
+  display: none;
 }
 
+/* ============================================
+   CARROUSEL : ACTIVÉ EN MOBILE/TABLETTE UNIQUEMENT
+   ============================================ */
+@media (max-width: 1023px) {
+  .contact-info,
+  .contact-info__carousel {
+    /* Force l'élément à respecter la largeur du parent même si son contenu déborde */
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contact-info__carousel {
+    flex-direction: row;
+    gap: var(--space-md);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: var(--space-xs) 0 var(--space-sm);
+    /* Masquage scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .contact-info__carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .contact-info__carousel > .info-block {
+    /* Chaque slide occupe 92% de la largeur visible (effet peek) */
+    flex: 0 0 92%;
+    min-width: 0; /* Empêche le contenu d'élargir le slide */
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Pagination visible en mobile */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: var(--space-sm) 0 var(--space-md);
+  }
+}
+
+/* Styles des dots (s'appliquent peu importe le breakpoint, mais visibles uniquement en mobile) */
 .carousel-dot {
   width: 32px;
   height: 32px;
@@ -697,24 +745,7 @@ body.modal-open {
     gap: var(--space-lg);
   }
 
-  /* Désactivation du carrousel : retour à un empilement vertical classique */
   .contact-info__carousel {
-    display: flex;
-    flex-direction: column;
     gap: var(--space-lg);
-    overflow: visible;
-    scroll-snap-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .contact-info__carousel > .info-block {
-    flex: 1 1 auto;
-    min-height: auto;
-    scroll-snap-align: none;
-  }
-
-  .carousel-dots {
-    display: none;
   }
 }
