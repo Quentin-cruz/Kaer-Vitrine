@@ -546,19 +546,38 @@ body.nav-open .menu-toggle {
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  color: var(--creme);
-  opacity: 0.7;
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  writing-mode: vertical-rl;
-  animation: scrollHint 2s ease-in-out infinite;
+  width: 1px;
+  height: 56px;
+  overflow: hidden;
+  opacity: 0.6;
 }
 
-@keyframes scrollHint {
-  0%, 100% { transform: translate(-50%, 0); opacity: 0.7; }
-  50% { transform: translate(-50%, 8px); opacity: 1; }
+.hero__scroll-line {
+  display: block;
+  width: 1px;
+  height: 100%;
+  background-color: var(--creme);
+  transform-origin: top;
+  animation: scrollLineSlide 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes scrollLineSlide {
+  0% {
+    transform: scaleY(0) translateY(0);
+    transform-origin: top;
+  }
+  45% {
+    transform: scaleY(1) translateY(0);
+    transform-origin: top;
+  }
+  55% {
+    transform: scaleY(1) translateY(0);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0) translateY(0);
+    transform-origin: bottom;
+  }
 }
 
 /* ============================================

@@ -287,7 +287,81 @@
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: var(--space-md);
+}
+
+/* Carrousel mobile : scroll horizontal avec snap natif */
+.contact-info__carousel {
+  display: flex;
+  gap: var(--space-md);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  /* On déborde légèrement du container pour donner un effet "edge-to-edge"
+     et permettre de voir un bout du slide suivant */
+  margin: 0 calc(var(--space-md) * -1);
+  padding: var(--space-xs) var(--space-md) var(--space-sm);
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.contact-info__carousel::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.contact-info__carousel > .info-block {
+  flex: 0 0 calc(100% - var(--space-lg));
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  /* Une hauteur min uniforme pour éviter que le carrousel "saute" entre slides
+     de hauteurs différentes pendant le swipe */
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Points de pagination */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: var(--space-sm) 0 var(--space-md);
+}
+
+.carousel-dot {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.carousel-dot::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--vert-sapin);
+  opacity: 0.25;
+  transition: opacity 0.3s ease, transform 0.3s ease, width 0.3s ease;
+}
+
+.carousel-dot:hover::after,
+.carousel-dot:focus-visible::after {
+  opacity: 0.6;
+}
+
+.carousel-dot.is-active::after {
+  opacity: 1;
+  width: 24px;
+  border-radius: 4px;
 }
 
 .info-block {
@@ -308,6 +382,13 @@
 
 .info-block--zone .info-block__title {
   color: var(--creme);
+}
+
+/* Variantes spécifiques au bloc zone d'intervention pour donner plus de présence */
+.eyebrow--zone {
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  margin-bottom: var(--space-sm);
 }
 
 .info-block__title {
@@ -371,17 +452,19 @@ a.info-item__value:focus-visible {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-md);
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
 .zone-list li {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.3rem;
+  font-size: clamp(1.5rem, 4vw, 1.75rem);
   color: var(--creme);
   padding-left: var(--space-md);
   position: relative;
+  line-height: 1.3;
 }
 
 .zone-list li::before {
@@ -389,7 +472,7 @@ a.info-item__value:focus-visible {
   position: absolute;
   left: 0;
   top: 50%;
-  width: 20px;
+  width: 24px;
   height: 1px;
   background-color: var(--cuir);
   transform: translateY(-50%);
@@ -611,5 +694,27 @@ body.modal-open {
   .contact-info {
     position: sticky;
     top: 100px;
+    gap: var(--space-lg);
+  }
+
+  /* Désactivation du carrousel : retour à un empilement vertical classique */
+  .contact-info__carousel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    overflow: visible;
+    scroll-snap-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact-info__carousel > .info-block {
+    flex: 1 1 auto;
+    min-height: auto;
+    scroll-snap-align: none;
+  }
+
+  .carousel-dots {
+    display: none;
   }
 }

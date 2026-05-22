@@ -61,7 +61,10 @@
     var prenom = form.elements['prenom'];
     var nom = form.elements['nom'];
     var email = form.elements['email'];
+    var telephone = form.elements['telephone'];
+    var localisation = form.elements['localisation'];
     var demande = form.elements['demande'];
+    var cheval = form.elements['cheval'];
     var message = form.elements['message'];
 
     // Champs requis
@@ -85,8 +88,29 @@
       valid = false;
     }
 
+    // Validation téléphone (souple : au moins 8 chiffres, autorise espaces, points, tirets, +, parenthèses)
+    var telValue = telephone.value.trim();
+    var telDigits = telValue.replace(/[^0-9]/g, '');
+    if (!telValue) {
+      showError(telephone, 'Veuillez saisir votre numéro de téléphone.');
+      valid = false;
+    } else if (telDigits.length < 8) {
+      showError(telephone, 'Numéro de téléphone trop court.');
+      valid = false;
+    }
+
+    if (!localisation.value.trim()) {
+      showError(localisation, 'Veuillez indiquer votre département ou ville.');
+      valid = false;
+    }
+
     if (!demande.value) {
       showError(demande, 'Veuillez sélectionner la nature de votre demande.');
+      valid = false;
+    }
+
+    if (!cheval.value.trim()) {
+      showError(cheval, 'Veuillez renseigner les informations sur le cheval.');
       valid = false;
     }
 
@@ -128,10 +152,10 @@
     corps += 'Voici ma demande via le formulaire du site :\n\n';
     corps += '— Nom : ' + data.prenom + ' ' + data.nom + '\n';
     corps += '— Email : ' + data.email + '\n';
-    if (data.telephone) corps += '— Téléphone : ' + data.telephone + '\n';
-    if (data.localisation) corps += '— Localisation : ' + data.localisation + '\n';
+    corps += '— Téléphone : ' + data.telephone + '\n';
+    corps += '— Localisation : ' + data.localisation + '\n';
     corps += '— Nature de la demande : ' + libelleDemande + '\n';
-    if (data.cheval) corps += '— Cheval : ' + data.cheval + '\n';
+    corps += '— Cheval : ' + data.cheval + '\n';
     corps += '\nMessage :\n';
     corps += data.message + '\n\n';
     corps += 'Cordialement,\n';
@@ -188,5 +212,77 @@
     // car les comportements mailto varient selon l'OS / le navigateur
     setTimeout(openModal, 400);
   });
+
+  // ============================================
+  // CARROUSEL DES BLOCS INFO (mobile)
+  // ============================================
+  var carousel = document.querySelector('.contact-info__carousel');
+  var dots = document.querySelectorAll('.carousel-dot');
+
+  if (carousel && dots.length > 0) {
+
+    // Mise à jour des dots selon le slide visible (au scroll utilisateur)
+    var scrollTimeout = null;
+    function updateActiveDot() {
+      // On désactive sur desktop (le carrousel n'est plus actif)
+      if (window.innerWidth >= 1024) return;
+
+      var slides = carousel.querySelectorAll('.info-block');
+      var carouselRect = carousel.getBoundingClientRect();
+      var center = carouselRect.left + carouselRect.width / 2;
+
+      var closestIndex = 0;
+      var closestDistance = Infinity;
+
+      slides.forEach(function(slide, index) {
+        var slideRect = slide.getBoundingClientRect();
+        var slideCenter = slideRect.left + slideRect.width / 2;
+        var distance = Math.abs(slideCenter - center);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      dots.forEach(function(dot, index) {
+        if (index === closestIndex) {
+          dot.classList.add('is-active');
+          dot.setAttribute('aria-current', 'true');
+        } else {
+          dot.classList.remove('is-active');
+          dot.removeAttribute('aria-current');
+        }
+      });
+    }
+
+    carousel.addEventListener('scroll', function() {
+      // Throttling léger : on recalcule après que le scroll s'est calmé
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(updateActiveDot, 60);
+    }, { passive: true });
+
+    // Clic sur un dot : scroll vers le slide correspondant
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        var index = parseInt(dot.dataset.slide, 10);
+        var slides = carousel.querySelectorAll('.info-block');
+        if (slides[index]) {
+          var slide = slides[index];
+          // On calcule le décalage à appliquer pour centrer le slide
+          var carouselWidth = carousel.offsetWidth;
+          var slideLeft = slide.offsetLeft;
+          var slideWidth = slide.offsetWidth;
+          var targetScroll = slideLeft - (carouselWidth - slideWidth) / 2;
+          carousel.scrollTo({ left: targetScroll, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Recalcul lors d'un redimensionnement (rotation mobile, par exemple)
+    window.addEventListener('resize', updateActiveDot, { passive: true });
+
+    // Init au chargement
+    updateActiveDot();
+  }
 
 })();
