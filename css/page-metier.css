@@ -1,0 +1,341 @@
+/* ============================================
+   PAGES MÉTIER — STYLES COMMUNS
+   (saddle-fitting, bit-fitting, accessoires)
+   ============================================ */
+
+/* Réutilise .page-hero depuis contact.css —
+   on duplique uniquement ce qui est nécessaire
+   pour éviter de lier les deux CSS */
+.page-interne main {
+  padding-top: 72px;
+}
+
+.header--interne {
+  background-color: rgba(245, 241, 232, 0.96);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(22, 68, 21, 0.08);
+}
+
+.header--interne .menu-toggle__bar {
+  background-color: var(--vert-sapin);
+}
+
+/* ============================================
+   HERO PAGE INTERNE
+   ============================================ */
+.page-hero {
+  padding: var(--space-2xl) var(--space-md) var(--space-xl);
+  text-align: center;
+  background-color: var(--creme);
+  position: relative;
+}
+
+.page-hero::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  background-color: var(--vert-sapin);
+  margin: var(--space-lg) auto 0;
+}
+
+.page-hero__eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--cuir);
+  margin-bottom: var(--space-md);
+  display: inline-block;
+}
+
+.page-hero__title {
+  font-style: italic;
+  margin-bottom: var(--space-md);
+}
+
+.page-hero__subtitle {
+  max-width: 580px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--anthracite);
+  opacity: 0.85;
+}
+
+/* ============================================
+   SECTION INTRO (texte + visuel)
+   ============================================ */
+.metier-intro {
+  padding: var(--space-2xl) 0;
+  background-color: var(--creme-clair);
+}
+
+.metier-intro__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+.metier-intro__visuel {
+  width: 100%;
+}
+
+.metier-intro__texte h2 {
+  font-style: italic;
+  margin-bottom: var(--space-md);
+}
+
+.metier-intro__texte p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--anthracite);
+  margin-bottom: var(--space-sm);
+}
+
+/* Placeholder visuels */
+.metier-placeholder {
+  background: linear-gradient(135deg, var(--vert-fonce) 0%, var(--vert-sapin) 100%);
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--creme);
+  opacity: 0.6;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.metier-placeholder--tall {
+  aspect-ratio: 3/4;
+}
+
+/* ============================================
+   ÉTAPES (liste numérotée)
+   ============================================ */
+.metier-etapes {
+  padding: var(--space-2xl) 0;
+  background-color: var(--creme);
+}
+
+.metier-etapes__intro {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.metier-etapes__intro h2 {
+  font-style: italic;
+}
+
+.etapes-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.etape {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: var(--space-md);
+  padding: var(--space-lg) 0;
+  border-top: 1px solid rgba(22, 68, 21, 0.1);
+  align-items: start;
+}
+
+.etape:last-child {
+  border-bottom: 1px solid rgba(22, 68, 21, 0.1);
+}
+
+.etape__numero {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--cuir);
+  opacity: 0.7;
+  line-height: 1;
+  padding-top: 4px;
+}
+
+.etape__contenu h3 {
+  font-size: 1.15rem;
+  margin-bottom: var(--space-xs);
+  color: var(--vert-sapin);
+}
+
+.etape__contenu p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--gris);
+  margin: 0;
+}
+
+/* ============================================
+   BLOC STÜBBEN (fond vert foncé)
+   ============================================ */
+.metier-stubben {
+  background-color: var(--vert-fonce);
+  padding: var(--space-2xl) 0;
+}
+
+.metier-stubben__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 var(--space-md);
+}
+
+.metier-stubben__inner h2 {
+  color: var(--creme);
+  font-style: italic;
+  margin-bottom: var(--space-md);
+}
+
+.metier-stubben__inner p {
+  color: var(--creme);
+  opacity: 0.9;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+  max-width: 100%;
+}
+
+.eyebrow--clair {
+  color: var(--cuir);
+  opacity: 0.85;
+}
+
+.metier-stubben__cta {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-lg);
+  border: 1px solid var(--creme);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--creme);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.metier-stubben__cta:hover,
+.metier-stubben__cta:focus-visible {
+  background-color: var(--creme);
+  color: var(--vert-fonce);
+  outline: none;
+}
+
+/* ============================================
+   GALERIE PHOTOS
+   ============================================ */
+.metier-galerie {
+  padding: var(--space-2xl) 0;
+  background-color: var(--creme-clair);
+}
+
+.metier-galerie__intro {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.metier-galerie__intro h2 {
+  font-style: italic;
+}
+
+.metier-galerie__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+}
+
+/* ============================================
+   CTA FINAL
+   ============================================ */
+.metier-cta {
+  background-color: var(--vert-sapin);
+  padding: var(--space-2xl) var(--space-md);
+  text-align: center;
+}
+
+.metier-cta__title {
+  color: var(--creme);
+  font-style: italic;
+  margin-bottom: var(--space-md);
+}
+
+.metier-cta__text {
+  font-size: 1.05rem;
+  color: var(--creme);
+  opacity: 0.9;
+  max-width: 480px;
+  margin: 0 auto var(--space-lg);
+  line-height: 1.7;
+}
+
+.metier-cta__btn {
+  display: inline-block;
+  padding: 16px var(--space-xl);
+  background-color: var(--creme);
+  color: var(--vert-sapin);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.metier-cta__btn:hover,
+.metier-cta__btn:focus-visible {
+  background-color: var(--cuir);
+  color: var(--creme);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* ============================================
+   RESPONSIVE — TABLETTE (≥ 640px)
+   ============================================ */
+@media (min-width: 640px) {
+  .metier-galerie__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .metier-galerie__grid > :first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — DESKTOP (≥ 1024px)
+   ============================================ */
+@media (min-width: 1024px) {
+  .metier-intro__grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--space-2xl);
+  }
+
+  .metier-galerie__grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  .metier-galerie__grid > :first-child {
+    grid-column: auto;
+    grid-row: 1 / 3;
+  }
+
+  .etape {
+    grid-template-columns: 64px 1fr;
+    gap: var(--space-lg);
+  }
+
+  .etapes-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}

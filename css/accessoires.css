@@ -1,0 +1,106 @@
+/* ============================================
+   PAGE ACCESSOIRES — STYLES SPÉCIFIQUES
+   ============================================ */
+
+/* Grille des catégories */
+.accessoires-categories {
+  padding: var(--space-2xl) 0;
+  background-color: var(--creme);
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.categorie-card {
+  background-color: var(--blanc);
+  border: 1px solid rgba(22, 68, 21, 0.08);
+  overflow: hidden;
+}
+
+.categorie-card__visuel {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.categorie-card__visuel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.categorie-card:hover .categorie-card__visuel img {
+  transform: scale(1.04);
+}
+
+.categorie-card__visuel .metier-placeholder {
+  height: 100%;
+  aspect-ratio: unset;
+}
+
+.categorie-card__body {
+  padding: var(--space-md);
+}
+
+.categorie-card__body h3 {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-xs);
+}
+
+.categorie-card__body p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--gris);
+  margin: 0;
+}
+
+/* Section note commande */
+.accessoires-note {
+  background-color: var(--vert-fonce);
+  padding: var(--space-2xl) 0;
+}
+
+.accessoires-note__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 var(--space-md);
+}
+
+.accessoires-note__inner h2 {
+  color: var(--creme);
+  font-style: italic;
+  margin-bottom: var(--space-md);
+}
+
+.accessoires-note__inner p {
+  color: var(--creme);
+  opacity: 0.9;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+  max-width: 100%;
+}
+
+.accessoires-note__cta {
+  margin-top: 0;
+}
+
+/* Responsive */
+@media (min-width: 640px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+}
